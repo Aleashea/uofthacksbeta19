@@ -41,10 +41,8 @@
     <div  class="row">
 
       <div class="col" id="uploadedImage">
-          <form id="file_Upload" method="POST" action="{{ url_for(".process_image") }}" enctype="multipart/form-data">
-              <input class="in" type='file' onchange="readURL(this);" />
-
-
+          <form id="file_Upload" method="post" action="{{ url_for(".process_image") }}" enctype="multipart/form-data">
+              <input class="in" name=file type=file onchange="readURL(this);" />
           </form>
 
       </div>
@@ -54,7 +52,6 @@
 
       <div class="col" id="uploadedImage">
           <button form="file_Upload" class="abtn btn-outline btn-xl" type="submit" value="upload" onclick="aiConfirmation()">ANALYZE</button>
-
       </div>
 
   </div>

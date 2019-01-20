@@ -1,12 +1,13 @@
 from queue import PriorityQueue
 
 import nltk
+from keys import keys
 from pymongo import *
 
 
 uri = 'mongodb://<hinamomori>:<hyacint5>@ds159574.mlab.com:59574/trashset'
 
-client = MongoClient(uri)
+client = MongoClient(keys["mongoDB_URI"])
 
 db = client.get_database()
 collection = db["kvset"]
@@ -41,7 +42,10 @@ def prioritize(arr, kvset):
 def extract(pq):
     if not pq.isEmpty():
         a = pq.delete()
-    return a.data
+        return a.data
+    else:
+        return 0
+
 
 
 def userconfirm(bool, item):
@@ -53,6 +57,15 @@ def userconfirm(bool, item):
         else:
             kvs = {item:1}
             collection.insert_one(kvs)
+
+
+
+def json_to_tags(json):
+    string = jtos(json)
+    words = chew(string)
+    return words
+
+
 
 
 class PriorityEntry(object):
