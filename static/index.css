@@ -1,0 +1,36 @@
+#imageUpload col{
+    text-align: center;
+}
+.in{
+    display: inline;
+}
+
+.col{
+    text-align: center;
+}
+
+#uploadedImage col{
+    text-align: center;
+
+}
+#middle{
+    position: absolute;
+    top:50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#iteon{
+    width: 250px;
+    height: 250px;
+}
+#i{
+    text-align: center;
+    padding: 40px;
+}
+button{
+    color: green;
+}
