@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>12Hours</title>
-    <style>
-article, aside, figure, footer, header, hgroup,
-  menu, nav, section { display: block; }
-</style>
+
+    <link rel="stylesheet" href="../static/index.css">
+
+
 </head>
 <body>
 <div>
@@ -28,13 +28,40 @@ article, aside, figure, footer, header, hgroup,
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
   </li>
 </ul>
+</div>
+<div id="i">
+    <iframe id="iteon">
+
+        </iframe>
 
 </div>
-<div style="alignment: center; display: inline">
-    <input type='file' onchange="readURL(this);" />
-    <img id="blah" src="#" alt="your image" />
+<br>
 
+<div class="container"id="middle">
+  <div class="row ">
+    <div class="col" id="imageUpload">
+
+        <img id="blah" src="#" alt="your image"  />
+    </div>
+  </div>
+    <br>
+    <div  class="row">
+      <div class="col" id="uploadedImage"><input class="in" type='file' onchange="readURL(this);" /></div>
+
+  </div>
 </div>
+
+<div>
+    <input type="file" accept="image/*;capture=camera">
+</div>
+
+<device type="media" onchange="update(this.data)"></device>
+<video autoplay></video>
+<script>
+  function update(stream) {
+    document.querySelector('video').src = stream.url;
+  }
+</script>
 
 
 <script>
