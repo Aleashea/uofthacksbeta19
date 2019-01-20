@@ -6,6 +6,7 @@ from PIL import Image
 from io import BytesIO
 from keys import *
 
+
 def analayze_for_tags(image_path):
     # Replace <Subscription Key> with your valid subscription key.
     subscription_key = keys["AzureAPIKey"]
@@ -23,7 +24,6 @@ def analayze_for_tags(image_path):
     analyze_url = vision_base_url + "analyze"
 
     # Set image_path to the local path of an image that you want to analyze.
-    image_path = "C:/Documents/ImageToAnalyze.jpg"
 
     # Read the image into a byte array
     image_data = open(image_path, "rb").read()

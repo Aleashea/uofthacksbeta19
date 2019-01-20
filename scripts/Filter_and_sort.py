@@ -5,12 +5,13 @@ from keys import keys
 from pymongo import *
 
 
-uri = 'mongodb://<hinamomori>:<hyacint5>@ds159574.mlab.com:59574/trashset'
+uri = "mongodb://johnny:apples15@ds064748.mlab.com:64748/uoft-hacks"
 
-client = MongoClient(keys["mongoDB_URI"])
+client = MongoClient(uri)
 
 db = client.get_database()
-collection = db["kvset"]
+
+items = db['items']
 
 
 def jtos(json):
@@ -31,39 +32,53 @@ def chew(string):
     return arr
 
 
-def prioritize(arr, kvset):
-    pq = PriorityQueue()
-    for i in arr:
-        if i in kvset:
-            pq.append(PriorityEntry(collection.find(i), i))
-    return pq
+
+# def extract_list(priority_entry_list):
+#     new_list = []
+#     for item in priority_entry_list:
+#         new_list.append(item.data)
+#     return new_list
+#
+
+#
+# def prioritize(arr):
+#     plist = []
+#     # pq = PriorityQueue()
+#     for i in arr:
+#         if i in kvset:
+#             # pq.append(PriorityEntry(collection.find(i), i))
+#             plist.append(PriorityEntry(collection.find(i), i))
+#     plist.sort()
+#     db_entry = extract_list(plist)
+#     db.priority_collection.insertOne(db_entry)
 
 
-def extract(pq):
-    if not pq.isEmpty():
-        a = pq.delete()
-        return a.data
-    else:
-        return 0
+#
+# def extract(pq):
+#     if not pq.isEmpty():
+#         a = pq.delete()
+#         return a.data
+#     else:
+#         return 0
 
 
-
-def userconfirm(bool, item):
-    if bool:
-        if collection.find_one(item):
-            temp = collection.find_one(item)
-            new_count = {"$set": {item: temp+1}}
-            collection.update_one(item, new_count)
-        else:
-            kvs = {item:1}
-            collection.insert_one(kvs)
-
-
+#
+# def userconfirm(bool, item):
+#     if bool:
+#         if collection.find_one(item):
+#             temp = collection.find_one(item)
+#             new_count = {"$set": {item: temp+1}}
+#             collection.update_one(item, new_count)
+#         else:
+#             kvs = {item:1}
+#             collection.insert_one(kvs)
+#
+#
 
 def json_to_tags(json):
     string = jtos(json)
     words = chew(string)
-    return words
+    return words[:3]
 
 
 

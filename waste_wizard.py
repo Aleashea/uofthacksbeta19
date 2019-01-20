@@ -2,7 +2,7 @@ import json
 
 def get_json_data(str):
     Lookupword = str
-    json_data = open("wasteWizardData.json").read()
+    json_data = open("/Users/svvarik/Documents/Projects/12Hours/uofthacksbeta19/wasteWizardData.json").read()
     data = json.loads(json_data)
     wordstorank = []
     for i in range(len(data)):
