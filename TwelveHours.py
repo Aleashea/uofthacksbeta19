@@ -1,19 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():
-    return 'Landing Page!'
+    return render_template("index.html")
+
 
 @app.route('/complicated')
 def complicated_life():
     pass
 
+
 @app.route('/process_image')
 def process_image():
     pass
+
 
 @app.route('choose-object')
 def choose_object():
@@ -34,6 +37,3 @@ if __name__ == '__main__':
 ## Alex figures out HTML / CSS template so we know how to route back?
 ##
 ##
-##
-
-action="{{ url_for('handle_data') }}
