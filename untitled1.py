@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/'
+@app.route('/')
 def hello_world():
     return 'Landing Page!'
 
@@ -31,7 +31,9 @@ if __name__ == '__main__':
 ##
 ## Pick top three objects and see where they are supposed to go?
 ##
-## Alex figures out HTML / CSS template so we know how to route back? 
+## Alex figures out HTML / CSS template so we know how to route back?
 ##
 ##
 ##
+
+action="{{ url_for('handle_data') }}
