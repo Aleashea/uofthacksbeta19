@@ -7,7 +7,7 @@ from io import BytesIO
 from keys import *
 
 
-def analayze_for_tags(image_path):
+def analyze_for_tags(image_path):
     # Replace <Subscription Key> with your valid subscription key.
     subscription_key = keys["AzureAPIKey"]
     # assert subscription_key

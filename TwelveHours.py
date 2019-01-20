@@ -40,7 +40,7 @@ def process_image():
             urLString = os.path.join(UPLOAD_FOLDER, filename)
             file.save(urLString)
             # Use Vision API to see what we have
-            json = visionAPI.analayze_for_tags(urLString)
+            json = visionAPI.analyze_for_tags(urLString)
             tags = Filter_and_sort.json_to_tags(json)
             word = waste_wizard.get_json_data(tags[0])
             return render_template("index_2.html", container=word, object=tags[0])

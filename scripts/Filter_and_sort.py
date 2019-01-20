@@ -26,7 +26,7 @@ def chew(string):
     tokens = nltk.word_tokenize(string)
     tagged = nltk.pos_tag(tokens)
     arr = []
-    for (a,b) in tagged:
+    for (a, b) in tagged:
         if b == "NN":
             arr.append(a)
     return arr
