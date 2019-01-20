@@ -16,25 +16,18 @@
 <div>
    <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link active" href="#">12 Hours</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Donate</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Setting</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
+
 </ul>
 </div>
-<div id="i">
-    <iframe id="iteon">
 
-        </iframe>
-
-</div>
 <br>
 
 <div class="container"id="middle">
@@ -50,18 +43,29 @@
 
   </div>
 </div>
+<div id="popUpText">
+    <h1>Is the photo of a ?</h1>
+    <div class="row">
+        <div class="col">
+            <button type="button" onclick="rightGuess(true)">
+                Yes!
+            </button>
+        </div>
+        <div class="col">
+            <button type="button" onclick="rightGuess(false)">
+                No...
+            </button>
+        </div>
 
-<div>
-    <input type="file" accept="image/*;capture=camera">
+    </div>
 </div>
 
-<device type="media" onchange="update(this.data)"></device>
-<video autoplay></video>
-<script>
-  function update(stream) {
-    document.querySelector('video').src = stream.url;
-  }
-</script>
+
+<div id="rectangle1"></div>
+<div id="rectangle2"></div>
+
+
+
 
 
 <script>
@@ -72,13 +76,25 @@
             reader.onload = function (e) {
                 $('#blah')
                     .attr('src', e.target.result)
-                    .width(150)
-                    .height(200);
+                    .width(350)
+                    .height(350);
             };
 
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    function rightGuess(t) {
+        if (t == true){
+
+        }else if (t == false){
+
+        }
+
+    }
+
+
+
 </script>
 
 
