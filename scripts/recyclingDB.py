@@ -1,7 +1,7 @@
 from pymongo import *
 
 
-uri = 'mongodb://user:pass@host:port/db'
+uri = 'mongodb://<hinamomori>:<hyacint5>@ds159574.mlab.com:59574/trashset'
 
 client = MongoClient(uri)
 

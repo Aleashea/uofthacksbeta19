@@ -1,7 +1,14 @@
 from queue import PriorityQueue
 
 import nltk
+from pymongo import *
 
+
+uri = 'mongodb://<hinamomori>:<hyacint5>@ds159574.mlab.com:59574/trashset'
+
+client = MongoClient(uri)
+
+db = client.get_database()
 
 def jtos(json):
     res = ""
@@ -33,6 +40,7 @@ def extract(pq):
     if not pq.isEmpty():
         a = pq.delete()
     return a.data
+
 
 
 class PriorityEntry(object):
