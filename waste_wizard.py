@@ -12,8 +12,13 @@ def get_json_data(str):
                 if Lookupword in ln:
                     wordstorank.append(((ln), data[i]["category"]))
     wordstorank.sort()
-    print(wordstorank[0][1])
-    return wordstorank[0][1]
+    try:
+        print(wordstorank[0][1])
+        return wordstorank[0][1]
+    except:
+        return 0
+
+
 
 if __name__ == '__main__':
     get_json_data("toilet paper")

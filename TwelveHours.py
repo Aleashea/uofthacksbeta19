@@ -43,6 +43,25 @@ def process_image():
             json = visionAPI.analyze_for_tags(urLString)
             tags = Filter_and_sort.json_to_tags(json)
             word = waste_wizard.get_json_data(tags[0])
+            if tags[0] == "indoor" or tags[0] == "table":
+                if tags[1] == "indoor" or tags[1] == "table":
+                    word = waste_wizard.get_json_data(tags[2])
+                    if word==0:
+                        response = "Unknown object"
+                        area = "the blackhole????"
+                        return render_template("index_2.html", container=area, object=response)
+                    return render_template("index_2.html", container=word, object=tags[2])
+                else:
+                    word = waste_wizard.get_json_data(tags[1])
+                    if word==0:
+                        response = "Unknown object"
+                        area = "the blackhole????"
+                        return render_template("index_2.html", container=area, object=response)
+                    return render_template("index_2.html", container=word, object=tags[1])
+            if word == 0:
+                response = "Unknown object"
+                area = "the blackhole????"
+                return render_template("index_2.html", container=area, object=response)
             return render_template("index_2.html", container=word, object=tags[0])
 
 
